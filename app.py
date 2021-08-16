@@ -14,10 +14,6 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.secret_key = 'jastukang_v1'
 api = Api(app)
 
-@app.before_first_request
-def create_tables():
-    db.create_all()
-
 app.config['JWT_AUTH_USERNAME_KEY'] = 'email'
 app.config['JWT_AUTH_URL_RULE'] = '/login'
 jwt_user = JWT(app, authenticated_user, identity_user)
